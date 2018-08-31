@@ -1,8 +1,10 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 import { hot } from "react-hot-loader";
 import Nav from "./Nav";
 import Home from "./Home";
-import Routes from "../routes";
+import About from "./About";
+import Leonard from "./Leonard";
 
 class App extends React.Component {
   state = {
@@ -31,8 +33,13 @@ class App extends React.Component {
     return (
       <div>
         <Nav />
-        <Home projects={this.state.projects} addProject={this.addProject} />
-        {/* <Routes projects={this.state.projects} /> */}
+        <Switch>
+          <Route exact path="/"
+            render={() => (<Home {...this.state} projects={this.state.projects} addProject={this.addProject} />)}
+          />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/leonard" component={Leonard} />
+        </Switch>
       </div>
     );
   }

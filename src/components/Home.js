@@ -7,39 +7,31 @@ const InputText = styled.div`
 `;
 
 const List = styled.ul`
-  list-decoration: none;
+  list-style-type: none;
 `;
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      url: ""
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleUrlChange = this.handleUrlChange.bind(this);
+  state = {
+    title: "",
+    url: ""
+  };
 
-    this.titleRef = React.createRef();
-    this.urlRef = React.createRef();
-  }
+  titleRef = React.createRef();
+  urlRef = React.createRef();
 
-  handleClick() {
+  handleClick = () => {
     this.props.addProject(this.state);
   }
 
-  handleTitleChange() {
-    console.log(this.titleRef.current.value);
+  handleTitleChange = () => {
     this.setState({ title: this.titleRef.current.value });
   }
 
-  handleUrlChange() {
-    console.log(this.urlRef.current.value);
+  handleUrlChange = () => {
     this.setState({ url: this.urlRef.current.value });
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <h1>Home</h1>
@@ -48,9 +40,7 @@ class Home extends React.Component {
           <input
             type="text"
             ref={this.titleRef}
-            onChange={() => {
-              this.handleTitleChange();
-            }}
+            onChange={this.handleTitleChange}
           />
         </InputText>
         <InputText>
@@ -58,15 +48,11 @@ class Home extends React.Component {
           <input
             type="text"
             ref={this.urlRef}
-            onChange={() => {
-              this.handleUrlChange();
-            }}
+            onChange={this.handleUrlChange}
           />
         </InputText>
         <button
-          onClick={() => {
-            this.handleClick();
-          }}
+          onClick={this.handleClick}
         >
           Post
         </button>
