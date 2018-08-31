@@ -1,30 +1,26 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 import { hot } from "react-hot-loader";
 import Nav from "./Nav";
 import Home from "./Home";
-import Routes from "../routes";
+import About from "./About";
+import Leonard from "./Leonard";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      projects: [
-        {
-          title: "lol",
-          url: "https://google.com.sg"
-        },
-        {
-          title: "lol2",
-          url: "https://google.com.cn"
-        }
-      ]
-    };
-
-    this.addProject = this.addProject.bind(this);
+  state = {
+    projects: [
+      {
+        title: "lol",
+        url: "https://google.com.sg"
+      },
+      {
+        title: "lol2",
+        url: "https://google.com.cn"
+      }
+    ]
   }
 
-  addProject(project) {
+  addProject = (project) => {
     //1. Take a copy of existing state
     const projects = [...this.state.projects];
     //2. Add new project to projects variable
@@ -33,12 +29,17 @@ class App extends React.Component {
     this.setState({ projects: projects });
   }
 
-  render() {
+  render = () => {
     return (
       <div>
         <Nav />
-        <Home projects={this.state.projects} addProject={this.addProject} />
-        {/* <Routes projects={this.state.projects} /> */}
+        <Switch>
+          <Route exact path="/"
+            render={() => (<Home {...this.state} projects={this.state.projects} addProject={this.addProject} />)}
+          />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/leonard" component={Leonard} />
+        </Switch>
       </div>
     );
   }
