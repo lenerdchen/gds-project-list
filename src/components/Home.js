@@ -60,8 +60,9 @@ class Home extends React.Component {
           {this.props.projects.map(project => {
             return (
               <li key={project.title}>
-                <span>{project.title}</span>
-                <span>{project.url}</span>
+                <a href={project.url}>
+                  <span>{project.title}</span>
+                </a>
               </li>
             );
           })}
