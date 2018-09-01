@@ -2,14 +2,6 @@
 
 # GDS Project List
 
-<<<<<<< HEAD
-Running on:
-
-- [React 16.4.1](https://github.com/facebook/react)
-- [React-router-dom 4.3.1](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
-
-Experiment with React to create a list that designers can use to upload experiments and get members of the public to participate
-=======
 ## Getting started
 
 ```bash
@@ -19,4 +11,3 @@ npm i
 # start project
 npm start
 ```
->>>>>>> master

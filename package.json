@@ -1,13 +1,7 @@
 {
-<<<<<<< HEAD
-  "name": "gds-project-list",
-  "version": "0.1.0",
-  "description": "Project list for GDS Designers",
-=======
   "name": "gds-projects-list",
   "version": "0.1.0",
   "description": "List of experiments for GDS",
->>>>>>> master
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --hot --inline",
