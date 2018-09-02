@@ -13,25 +13,15 @@ class Post extends React.Component {
     url: ""
   };
 
-  titleRef = React.createRef();
-  descRef = React.createRef();
-  urlRef = React.createRef();
-
   handleClick = () => {
     this.props.addProject(this.state);
     alert("Added new experiment to projects state");
   };
 
-  handleTitleChange = () => {
-    this.setState({ title: this.titleRef.current.value });
-  };
-
-  handleDescChange = () => {
-    this.setState({ desc: this.descRef.current.value });
-  };
-
-  handleUrlChange = () => {
-    this.setState({ url: this.urlRef.current.value });
+  handleChange = event => {
+    const newValue = event.currentTarget.value;
+    const targetTitle = event.currentTarget.name;
+    this.state = { ...this.state, [targetTitle]: newValue };
   };
 
   render = () => {
@@ -40,27 +30,15 @@ class Post extends React.Component {
         <h1>Post an Experiment</h1>
         <InputText>
           <label>title</label>
-          <input
-            type="text"
-            ref={this.titleRef}
-            onChange={this.handleTitleChange}
-          />
+          <input name="title" type="text" onChange={this.handleChange} />
         </InputText>
         <InputText>
           <label>description</label>
-          <textarea
-            type="text"
-            ref={this.descRef}
-            onChange={this.handleDescChange}
-          />
+          <textarea name="desc" type="text" onChange={this.handleChange} />
         </InputText>
         <InputText>
           <label>url</label>
-          <input
-            type="text"
-            ref={this.urlRef}
-            onChange={this.handleUrlChange}
-          />
+          <input name="url" type="text" onChange={this.handleChange} />
         </InputText>
         <button onClick={this.handleClick}>Post</button>
       </div>
