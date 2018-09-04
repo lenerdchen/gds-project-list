@@ -36,7 +36,8 @@ const InputField = styled.input`
 
   :focus {
     border: none;
-    outline: none;
+    outline: 2px solid #aaa;
+    outline-offset: 0.2em;
     border-bottom: 2px solid #000;
   }
 `;
@@ -56,7 +57,8 @@ const InputTextArea = styled.textarea`
 
   :focus {
     border: none;
-    outline: none;
+    outline: 2px solid #aaa;
+    outline-offset: 0.2em;
     border-bottom: 2px solid #000;
   }
 `;
