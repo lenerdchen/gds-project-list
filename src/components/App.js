@@ -4,28 +4,30 @@ import { hot } from "react-hot-loader";
 import Nav from "./Nav";
 import Home from "./Home";
 import Post from "./Post";
+import base from "../base";
 
 class App extends React.Component {
   state = {
-    projects: [
-      {
-        title: "lol",
-        desc: "search in google singapore",
-        url: "https://google.com.sg"
-      },
-      {
-        title: "lol2",
-        desc: "build a google for china",
-        url: "https://google.com.cn"
-      }
-    ]
+    projects: {}
   };
+
+  componentDidMount() {
+    console.log(this.state);
+    this.ref = base.syncState(`/projects`, {
+      context: this,
+      state: "projects"
+    });
+  }
+
+  // componentDidUpdate() {
+  //   console.log(this.state);
+  // }
 
   addProject = project => {
     //1. Take a copy of existing state
-    const projects = [...this.state.projects];
+    const projects = { ...this.state.projects };
     //2. Add new project to projects variable
-    projects.push(project);
+    projects[`project${Date.now()}`] = project;
     //3. Set new projects object to state
     this.setState({ projects: projects });
   };
@@ -39,11 +41,7 @@ class App extends React.Component {
             exact
             path="/"
             render={() => (
-              <Home
-                {...this.state}
-                projects={this.state.projects}
-                addProject={this.addProject}
-              />
+              <Home {...this.state} projects={this.state.projects} />
             )}
           />
           <Route

@@ -84,8 +84,9 @@ class Post extends React.Component {
   };
 
   handleClick = () => {
-    this.props.addProject(this.state);
-    alert("Added new experiment to projects state");
+    const newProject = this.state;
+    this.props.addProject(newProject);
+    console.log("Added");
   };
 
   handleChange = event => {
@@ -94,7 +95,7 @@ class Post extends React.Component {
     this.state = { ...this.state, [targetTitle]: newValue };
   };
 
-  render = () => {
+  render() {
     return (
       <Wrapper>
         <Header>Post an Experiment</Header>
@@ -102,8 +103,8 @@ class Post extends React.Component {
           <InputLabel>What's the name of your experiment?</InputLabel>
           <InputField
             name="title"
-            type="text"
             onChange={this.handleChange}
+            type="text"
             placeholder="Give it something catchy!"
           />
         </InputText>
@@ -111,8 +112,8 @@ class Post extends React.Component {
           <InputLabel>What do you want participants to do?</InputLabel>
           <InputTextArea
             name="desc"
-            type="text"
             onChange={this.handleChange}
+            type="text"
             placeholder="What's the goal, how long will they take, and what's in it for them?"
           />
         </InputText>
@@ -120,15 +121,15 @@ class Post extends React.Component {
           <InputLabel>What's the URL of your experiment?</InputLabel>
           <InputField
             name="url"
-            type="text"
             onChange={this.handleChange}
+            type="text"
             placeholder="https://..."
           />
         </InputText>
         <Button onClick={this.handleClick}>Post it!</Button>
       </Wrapper>
     );
-  };
+  }
 }
 
 export default Post;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Project from "./Project";
 
 const Wrapper = styled.div`
   margin: 2em;
@@ -50,21 +51,11 @@ class Home extends React.Component {
       <Wrapper>
         <Header>Home</Header>
         <div>
-          {this.props.projects.map(project => {
-            return (
-              <List>
-                <li key={project.title}>
-                  <a href={project.url}>
-                    <span className="title">{project.title}</span>
-                  </a>
-                  <br />
-                  <span className="desc">{project.desc}</span>
-                  <br />
-                  <button href={project.url}>Do it!</button>
-                </li>
-              </List>
-            );
-          })}
+          <List>
+            {Object.keys(this.props.projects).map(key => (
+              <Project key={key} details={this.props.projects[key]} />
+            ))}
+          </List>
         </div>
       </Wrapper>
     );
