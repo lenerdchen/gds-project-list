@@ -27,7 +27,20 @@ const NavLink = styled.div`
   align-items: center;
   padding: 0.5em 1em;
   text-align: center;
-  cursor: pointer;
+
+  .link {
+    text-decoration: none;
+    color: #1986e6;
+
+    :hover,
+    :focus {
+      text-decoration: underline;
+    }
+
+    :visited {
+      color: #1986e6;
+    }
+  }
 `;
 
 class Nav extends React.Component {
@@ -35,10 +48,14 @@ class Nav extends React.Component {
     return (
       <NavWrapper>
         <NavLink>
-          <Link to="/">Experiments List</Link>
+          <Link className="link" to="/">
+            Experiments List
+          </Link>
         </NavLink>
         <NavLink>
-          <Link to="/Post">Post an Experiment</Link>
+          <Link className="link" to="/Post">
+            Post an Experiment
+          </Link>
         </NavLink>
       </NavWrapper>
     );

@@ -1,15 +1,42 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+const PostWrapper = styled.div`
+  display:grid;
+  grid-area: content;
+  justify-items: stretch;
+  align-items: center;
+  grid-gap: 20px
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+
+  .button {
+    background-color: #778088;
+    border-radius: 4px;
+    color: white;
+    padding: 0.5em 1em;
+    text-align: center;
+    text-decoration: none;
+
+    :hover,
+    :focus {
+      background-color: #1986e6;
+      cursor: pointer;
+    }
+  }
+`;
+
 const Header = styled.h1`
+  display: grid;
+  grid-column: 1 / -1;
   font-size: 1.6em;
-  margin-bottom: 1em;
+  color: #555;
 `;
 
 const InputText = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1em;
 `;
 
 const InputLabel = styled.label`
@@ -20,7 +47,7 @@ const InputLabel = styled.label`
 const InputField = styled.input`
   font-size: 1em;
   border: 1px solid #adb3b8;
-  margin: 0.25em 0 1.5em;
+  margin: 0.25em 0
   padding: 0.5em;
   border-radius: 4px;
 
@@ -41,7 +68,7 @@ const InputField = styled.input`
 const InputTextArea = styled.textarea`
   font-size: 1em;
   border: 1px solid #adb3b8;
-  margin: 0.25em 0 1.5em;
+  margin: 0.25em 0;
   padding: 0.5em;
   border-radius: 4px;
   height: auto;
@@ -60,16 +87,21 @@ const InputTextArea = styled.textarea`
   }
 `;
 
-const Button = styled.a`
-  background-color: #1986e6;
-  border-radius: 4px;
-  color: #fff;
-  padding: 0.5em 1em;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-`;
+// const Button = styled.a`
+//   display: grid;
+//   background-color: #778088;
+//   border-radius: 4px;
+//   color: white;
+//   padding: 0.5em 1em;
+//   text-align: center;
+//   text-decoration: none;
+
+//   :hover,
+//   :focus {
+//     background-color: #1986e6;
+//     cursor: pointer;
+//   }
+// `;
 
 class Post extends React.Component {
   state = {
@@ -81,7 +113,7 @@ class Post extends React.Component {
   handleClick = () => {
     const newProject = this.state;
     this.props.addProject(newProject);
-    console.log("Added");
+    alert("Experiment Successfully Added");
   };
 
   handleChange = event => {
@@ -92,7 +124,7 @@ class Post extends React.Component {
 
   render() {
     return (
-      <div>
+      <PostWrapper>
         <Header>Post an Experiment</Header>
         <InputText>
           <InputLabel>What's the name of your experiment?</InputLabel>
@@ -121,8 +153,10 @@ class Post extends React.Component {
             placeholder="https://..."
           />
         </InputText>
-        <Button onClick={this.handleClick}>Post it!</Button>
-      </div>
+        <Link className="button" onClick={this.handleClick} to="/">
+          Post it!
+        </Link>
+      </PostWrapper>
     );
   }
 }

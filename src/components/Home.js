@@ -5,16 +5,17 @@ import Project from "./Project";
 const ListWrapper = styled.div`
   display: grid;
   grid-area: content;
+  grid-auto-flow: dense;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-template-rows: auto 200px;
-  grid-auto-rows: 200px;
+  grid-template-rows: auto;
 `;
 
 const Header = styled.h1`
   display: grid;
   grid-column: 1 / -1;
   font-size: 1.6em;
+  color: #555;
 `;
 
 class Home extends React.Component {
