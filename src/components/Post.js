@@ -1,79 +1,74 @@
 import React from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-  margin: 2em;
-`;
-
 const Header = styled.h1`
-  font-family: Roboto;
-  font-size: 3em;
+  font-size: 1.6em;
+  margin-bottom: 1em;
 `;
 
 const InputText = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const InputLabel = styled.label`
-  font-family: Roboto;
-  font-size: 1em;
-  color: #555;
   margin-bottom: 1em;
 `;
 
+const InputLabel = styled.label`
+  color: #555;
+  margin-bottom: 0.5em;
+`;
+
 const InputField = styled.input`
-  font-family: Roboto;
-  font-size: 2em;
-  border: none;
-  border-bottom: 2px solid #aaa;
-  padding-bottom: 0.2em;
-  margin-bottom: 2em;
+  font-size: 1em;
+  border: 1px solid #adb3b8;
+  margin: 0.25em 0 1.5em;
+  padding: 0.5em;
+  border-radius: 4px;
 
   ::placeholder {
     color: #aaa;
   }
 
+  :hover {
+    border-color: #778088;
+  }
+
   :focus {
-    border: none;
-    outline: 2px solid #aaa;
-    outline-offset: 0.2em;
-    border-bottom: 2px solid #000;
+    outline: 0;
+    border-color: #1986e6;
   }
 `;
 
 const InputTextArea = styled.textarea`
-  font-family: Roboto;
-  font-size: 2em;
-  border: none;
-  border-bottom: 2px solid #aaa;
-  margin-bottom: 2em;
-  padding-bottom: 0.2em;
+  font-size: 1em;
+  border: 1px solid #adb3b8;
+  margin: 0.25em 0 1.5em;
+  padding: 0.5em;
+  border-radius: 4px;
   height: auto;
 
   ::placeholder {
     color: #aaa;
   }
 
+  :hover {
+    border-color: #778088;
+  }
+
   :focus {
-    border: none;
-    outline: 2px solid #aaa;
-    outline-offset: 0.2em;
-    border-bottom: 2px solid #000;
+    outline: 0;
+    border-color: #1986e6;
   }
 `;
 
-const Button = styled.button`
-  background-color: #000;
-  border: none;
-  color: white;
-  padding: 10px 10px;
-  margin-top: 10px;
+const Button = styled.a`
+  background-color: #1986e6;
+  border-radius: 4px;
+  color: #fff;
+  padding: 0.5em 1em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.2em;
-  font-family: Roboto;
+  cursor: pointer;
 `;
 
 class Post extends React.Component {
@@ -97,7 +92,7 @@ class Post extends React.Component {
 
   render() {
     return (
-      <Wrapper>
+      <div>
         <Header>Post an Experiment</Header>
         <InputText>
           <InputLabel>What's the name of your experiment?</InputLabel>
@@ -127,7 +122,7 @@ class Post extends React.Component {
           />
         </InputText>
         <Button onClick={this.handleClick}>Post it!</Button>
-      </Wrapper>
+      </div>
     );
   }
 }

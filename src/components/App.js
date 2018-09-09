@@ -1,10 +1,21 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { hot } from "react-hot-loader";
+import styled from "styled-components";
 import Nav from "./Nav";
 import Home from "./Home";
 import Post from "./Post";
 import base from "../base";
+
+const BaseStyle = styled.div`
+  font-family: Segoe UI, Roboto;
+  font-size: 1em;
+  margin: 20px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: auto;
+  grid-template-rows: 50px 1fr;
+`;
 
 class App extends React.Component {
   state = {
@@ -34,7 +45,7 @@ class App extends React.Component {
 
   render = () => {
     return (
-      <div>
+      <BaseStyle>
         <Nav />
         <Switch>
           <Route
@@ -50,7 +61,7 @@ class App extends React.Component {
             render={() => <Post addProject={this.addProject} />}
           />
         </Switch>
-      </div>
+      </BaseStyle>
     );
   };
 }

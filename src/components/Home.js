@@ -2,35 +2,30 @@ import React from "react";
 import styled from "styled-components";
 import Project from "./Project";
 
-const Wrapper = styled.div`
-  margin: 2em;
-`;
-
 const Header = styled.h1`
-  font-size: 3em;
-  font-family: Roboto;
+  display: grid;
+  // grid-column: span 3;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6em;
 `;
 
-const List = styled.ul`
-  list-style: none;
-  font-family: Roboto;
-  font-size: 2em;
-  margin-left: -40px;
+const ListWrapper = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 200px;
 `;
 
 class Home extends React.Component {
   render = () => {
     return (
-      <Wrapper>
-        <Header>Home</Header>
-        <div>
-          <List>
-            {Object.keys(this.props.projects).map(key => (
-              <Project key={key} details={this.props.projects[key]} />
-            ))}
-          </List>
-        </div>
-      </Wrapper>
+      <ListWrapper>
+        <Header>Experiments List</Header>
+        {Object.keys(this.props.projects).map(key => (
+          <Project key={key} details={this.props.projects[key]} />
+        ))}
+      </ListWrapper>
     );
   };
 }
