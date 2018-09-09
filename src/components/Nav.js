@@ -4,47 +4,42 @@ import styled from "styled-components";
 
 const NavWrapper = styled.div`
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 25ch 25ch 1fr;
+  grid-area: nav;
+  grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+  margin: 0 100px;
+
+  @media (max-width: 1400px) {
+    margin: 0 60px;
+  }
+
+  @media (max-width: 1200px) {
+    margin: 0 25px;
+  }
+
+  @media (max-width: 700px) {
+    margin: 0 20px;
+  }
 `;
 
-const NavItem = styled.div`
+const NavLink = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-`;
-
-const NavLink = styled.a`
-  background-color: #778088;
-  border-radius: 4px;
-  color: #fff;
   padding: 0.5em 1em;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
   cursor: pointer;
-
-  :hover {
-    background-color: #1986e6;
-  }
 `;
 
 class Nav extends React.Component {
   render() {
     return (
       <NavWrapper>
-        <div />
-        <NavItem>
-          <Link to="/">
-            <NavLink>Experiments List</NavLink>
-          </Link>
-        </NavItem>
-        <NavItem>
-          <Link to="/Post">
-            <NavLink>Post an Experiment</NavLink>
-          </Link>
-        </NavItem>
-        <div />
+        <NavLink>
+          <Link to="/">Experiments List</Link>
+        </NavLink>
+        <NavLink>
+          <Link to="/Post">Post an Experiment</Link>
+        </NavLink>
       </NavWrapper>
     );
   }

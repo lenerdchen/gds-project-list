@@ -5,12 +5,13 @@ const ListItem = styled.a`
   display: grid;
   justify-content: center;
   align-items: center;
+  text-align: center;
   border: 1px solid #adb3b8;
   border-radius: 4px;
   background: white;
 
   :hover {
-    border-color: #1986e6;
+    border: 1px solid #1986e6;
     cursor: pointer;
   }
 `;
@@ -21,8 +22,9 @@ class Project extends React.Component {
 
     return (
       <ListItem href={url}>
-        <span class="title">{title}</span>
-        <span class="desc">{desc}</span>
+        {title}
+        <br />
+        {desc}
       </ListItem>
     );
   }

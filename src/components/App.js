@@ -10,11 +10,24 @@ import base from "../base";
 const BaseStyle = styled.div`
   font-family: Segoe UI, Roboto;
   font-size: 1em;
-  margin: 20px;
+  margin: 20px 320px;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: auto;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "nav" "content";
+
+  @media (max-width: 1400px) {
+    margin: 20px 200px;
+  }
+
+  @media (max-width: 1200px) {
+    margin: 20px 100px;
+  }
+
+  @media (max-width: 700px) {
+    margin: 20px 20px;
+  }
 `;
 
 class App extends React.Component {
