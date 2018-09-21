@@ -34,7 +34,7 @@ class Project extends React.Component {
     const { title, desc, url } = this.props.details;
 
     return (
-      <ListItem href={url}>
+      <ListItem href={url} target="_blank">
         <span className="title">{title}</span>
         <span className="desc">{desc}</span>
       </ListItem>
